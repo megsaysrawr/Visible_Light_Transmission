@@ -9,6 +9,6 @@ x_real = x(1:2:end);
 x_imag = x(2:2:end);
 x_complex = x_real+1i*x_imag;
 plot(x_real(100:end));
-res = find_freq(x_complex);
-disp(res)
+offset = find_offset(x_complex);
+disp(offset)
 fclose(f1);
