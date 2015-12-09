@@ -5,7 +5,7 @@ function res=find_offset(data);
     signal_length = length(data);
     
     freqs = linspace(-sampling_freq/2, sampling_freq/2, signal_length);
-    times = (0:signal_length-1);
+    times = transpose((0:signal_length-1)*sampling_p);
     
     data_square = data .* data;
     fft_data = fftshift(fft(data_square));     %fftshift centers the fft at zero
@@ -14,5 +14,7 @@ function res=find_offset(data);
     offset = freqs(I)/2;        %the frequency offset is half of the max value
     
     complex_exp = exp(-1i*2*pi*offset*times);       %where times = k in the equation
-    plot(complex_exp);
+    better_data = complex_exp.*data;
+    plot(times,better_data);
+    res = better_data;
 end
