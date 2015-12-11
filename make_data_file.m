@@ -10,7 +10,7 @@
 
 % tx_samples_from_file --freq 1e6 --rate 0.25e6 --file foo_new.dat --type float
 
-f1 = fopen('foo_new.dat', 'w');
+f1 = fopen('less_short.dat', 'w');
 
 x = make_message();
 

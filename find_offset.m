@@ -9,8 +9,8 @@ function res=find_offset(data);
     
     data_square = data .* data;
     fft_data = fftshift(fft(data_square));     %fftshift centers the fft at zero
-    %plot(freqs, fft_data);
-    [C,I] = max(fft_data);      %get the index of the maximum value and the maximum value
+%     plot(freqs, fft_data);
+    [C,I] = max(abs(fft_data));      %get the index of the maximum value and the maximum value
     offset = freqs(I)/2;        %the frequency offset is half of the max value
     
     complex_exp = exp(-1i*2*pi*offset*times);       %where times = k in the equation
