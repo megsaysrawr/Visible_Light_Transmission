@@ -18,6 +18,7 @@ x_data = x_complex(ii(1)-100:ii(end)+100);
 figure;
 better_data = find_offset(x_data);
 binary = count_bits(better_data);
+csvwrite('rec_bits.dat',binary)
 %disp(offset)
 fclose(f1);
 %%
