@@ -1,7 +1,7 @@
 %read_data.m
 
 %rx_samples_to_file --freq 1e6 --rate 0.25e6 --file file_name.dat --type float
-f1 = fopen('foo_2_rec.dat','r');      %make sure to change the file name when you run in cmd
+f1 = fopen('recv_2.dat','r');      %make sure to change the file name when you run in cmd
 
 x = fread(f1, 'float32');
 x_real = x(1:2:end);
@@ -11,7 +11,8 @@ x_complex = x_real+1i*x_imag;
 x_complex = x_complex(50:end);
 threshold = 2.5*std(x_complex(1:1000));
 ii = find(abs(x_complex) > threshold);
-x_data = x_complex(ii(1)-100:ii(end)+100);
+disp (ii);
+x_data = x_complex(ii(1)-50:ii(end)+50);
 % plot(x_data);
 %
 % plot(x_real);
